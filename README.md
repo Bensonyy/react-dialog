@@ -1,9 +1,10 @@
 # react-dialog
 react dialog component
 
-#截图
+# 截图
+![image](https://github.com/yongbingz/react-dialog/blob/master/demo/screenshot/1.png)
 
-Usage
+# Usage
 ```
 import Dialog from '../src/DialogWrap'
 
@@ -20,8 +21,8 @@ import Dialog from '../src/DialogWrap'
 
 ```
 
-#API
+# API
 
 
-#License
+# License
 MIT
