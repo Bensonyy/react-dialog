@@ -3,6 +3,7 @@ react dialog component
 
 # 截图
 ![image](https://github.com/yongbingz/react-dialog/blob/master/demo/screenshot/1.png)
+![image](https://github.com/yongbingz/react-dialog/blob/master/demo/screenshot/2.png)
 
 # Usage
 import项目中dialog组件的实际目录
