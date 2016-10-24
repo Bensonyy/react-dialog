@@ -58,13 +58,13 @@ Dialog props
           <td>onClose</td>
           <td>function(){}</td>
           <td></td>
-          <td>callback when onclick close button or mask</td>
+          <td>callback when click close button or mask</td>
         </tr>
          <tr>
           <td>onClickMask</td>
           <td>Boolean</td>
           <td>false</td>
-          <td>mask when onclick Whether to close </td>
+          <td>mask when click Whether to close </td>
         </tr>
     </tbody>
 </table>
