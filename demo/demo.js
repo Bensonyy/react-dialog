@@ -5,13 +5,13 @@
  */
 
 import './demo.scss'
-import Dialog from '../src/DialogWrap'
+import Dialog from '../src/Dialog'
 
 class Demo extends React.Component{
 	constructor(props){
 		super(props);
 		this.state={
-			show:false,
+			visible:false,
 			width:600
 		}
 		this.onClose = this.onClose.bind(this);
@@ -21,13 +21,13 @@ class Demo extends React.Component{
 
 	onClick(){
 		this.setState({
-			show:true
+			visible:true
 		});
 	}
 
 	onClose(){
 		this.setState({
-			show:false
+			visible:false
 		})
 	}
 
@@ -45,9 +45,10 @@ class Demo extends React.Component{
 		}
 		dialog = (
 			<Dialog
-				show={ this.state.show }
+				visible={ this.state.visible }
 				style={style} 
 				onClose={this.onClose}
+				closeVisible={false}
 				onClickMask
 			>
 				<div>

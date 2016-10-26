@@ -1,127 +1,50 @@
 /**
- * Dialog.js
+ * DialogWrap.js
  * @author  yongbing
  * @email   yongbingz@qq.com
  */
 
-import { PropTypes } from 'react'
-import Base from './base'
+import './dialog.scss'
+import DialogCore from './DialogCore'
 
 class Dialog extends React.Component{
 	constructor(props){
 		super(props);
-
-		this.close = this.close.bind(this);
-		this.onMask = this.onMask.bind(this);
-		this.handlerResize = this.handlerResize.bind(this);
 	}
 
-	close(e){
-		this.props.onClose();
-	}
-	onClickDialog(e){
-		e.stopPropagation();
-		e.preventDefault();
-	}
-	onMask(e){
-		e.stopPropagation();
-		e.preventDefault();
-
-		const { onClickMask } = this.props;
-		
-		if (onClickMask) {
-			this.props.onClose();
+	componentWillReceiveProps(nextProps){
+		if (nextProps.visible&&!this.props.visible) {
+			this.renderDialog(nextProps);
 		}
+		if (this.props.visible) {
+			this.renderDialog(nextProps);
+			if (!nextProps.visible) { 
+	            ReactDOM.unmountComponentAtNode(this.wrap); //调用 unmountComponentAtNode 将wrap节点中挂载的组件移除。
+	            // 删除 wrap
+	            this.doc.getElementsByTagName('body')[0].removeChild(this.wrap);
+	            this.doc = null;
+	            this.wrap = null;
+	        }
+        }
+
 	}
 
-	offset(){
-		const dialog = this.dialog;
-		if (!dialog) { return; }
-		let ret = {
-			width: dialog.offsetWidth,
-			height: dialog.offsetHeight
+	renderDialog(nextProps){
+		if (!this.wrap) {
+			this.wrap = this.doc.createElement('div');
+			this.doc.getElementsByTagName('body')[0].appendChild(this.wrap);
 		}
-		this.offset = ret;
-		return ret;
-	}
+		const dialog = (
+				<DialogCore key="dialog" {...nextProps} />
+			)
 
-	onWinResize(){
-		Base.addEvent(window, 'resize', this.handlerResize);
-	}
-
-
-	handlerResize(){
-		const dialog = this.dialog;
-		if (!dialog) {return;}
-		
-		
-		const  winSize = Base.getWinSize(),
-				offset = typeof this.offset === 'function' ? this.offset():this.offset;
-		
-		///dialog.style.left = (winSize.width - offset.width)/2 +'px';
-		dialog.style.top = (winSize.height - offset.height)/2 +'px';
-	}
-
-	componentDidMount(){			  
-		this.dialog = ReactDOM.findDOMNode(this.refs.rcDialog);
-		this.handlerResize();
-
-		const that = this;
-		setTimeout(function(){
-			that.onWinResize();
-		},100);
-		
-	}
-
-	shouldComponentUpdate({ show }) {
-	    return !!(this.props.show || show)
-	}
-
-	componentWillUnount(){
-		Base.removeEvent(window, 'resize', this.handlerResize);
+		ReactDOM.render(dialog, this.wrap);
 	}
 
 	render(){
-		//console.log(this.props,'props');
-		let wrapStyle = {};
-		let { style={}, show, dialogClassName, children} = this.props;
-
-		let { zIndex, ...rest } = style;
-
-		if (zIndex !== undefined) {
-			wrapStyle.zIndex = zIndex;
-		}
-		
-		wrapStyle.display = show ? 'block':'none';
-		let className = `rc-dialog${dialogClassName?' '+dialogClassName:''}`;
-		
-		return(
-			<div>
-				<div 
-					className="rc-dialog-mask" 
-					style={wrapStyle}
-				/>
-				<div className="rc-dialog-wrap" style={wrapStyle} onClick={this.onMask}>
-					<div ref="rcDialog" className={className} style={rest} onClick={this.onClickDialog}>
-						<button className="rc-dialog-close" onClick={this.close}>×</button>
-						<div className="rc-dialog-content">
-							{children}
-						</div>
-					</div>
-				</div>
-			</div>
-			)
-	}
+		this.doc=document;
+        return null
+    }
 }
 
-Dialog.propTypes = {
-	show: PropTypes.bool,
-	style: PropTypes.object,
-	onClick: PropTypes.func,
-	wrapClassName: PropTypes.string
-}
-
-Dialog.defaultProps = {
-}
-
-export default Dialog;
+export default Dialog

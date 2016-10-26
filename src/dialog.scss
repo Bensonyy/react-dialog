@@ -4,16 +4,13 @@
  * @email   yongbingz@qq.com
  */
 
-@import './common/scss/fn';
-
-$font-size:1rem;
 $color:#fff;
-$box-dialog-mask:#000;
-$icon-color:#26bb5c;
+$baseFontSize: 14px;
+
 
 //圆角
 %rd-common{
-	border-radius:r(10px);
+	border-radius:10px;
 }
 
 .rc-dialog-wrap, .rc-dialog-mask{
@@ -30,7 +27,7 @@ $icon-color:#26bb5c;
 	width: 100%;
 	height: 100%;
 	z-index: 1000;
-	background-color: rgba(0,0,0,.5);
+	background-color: rgba(0,0,0,.8);
 }
 
 .rc-dialog-wrap{
@@ -50,8 +47,8 @@ $icon-color:#26bb5c;
 			min-height:100px;
 			position: relative;
 			background-color: $color;
-			font-size: $font-size;
-			box-shadow: 0 r(1px) r(2px) rgba(0,0,0,.15);
+			font-size: $baseFontSize;
+			box-shadow: 0 1px 2px rgba(0,0,0,.15);
 			@extend %rd-common;
 			transition: all .3s cubic-bezier(0.48, 0.13, 0.29, 1.53);
 			margin:0 auto;
