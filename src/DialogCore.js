@@ -73,8 +73,8 @@ class Dialog extends React.Component{
 		
 	}
 
-	shouldComponentUpdate({ visible }) {
-	    return !!(this.props.visible || visible)
+	shouldComponentUpdate({ visible }){
+		return !!(this.props.visible || visible)
 	}
 
 	componentWillUnount(){

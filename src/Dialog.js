@@ -29,6 +29,10 @@ class Dialog extends React.Component{
 
 	}
 
+	shouldComponentUpdate({ visible }){
+		return !!(this.props.visible || visible)
+	}
+
 	renderDialog(nextProps){
 		if (!this.wrap) {
 			this.wrap = this.doc.createElement('div');
