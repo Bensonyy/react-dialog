@@ -37,7 +37,7 @@ Dialog props
     </thead>
     <tbody>
         <tr>
-          <td>show</td>
+          <td>visible</td>
           <td>Boolean</td>
           <td>false</td>
           <td>current dialog's status</td>
@@ -49,10 +49,10 @@ Dialog props
           <td>dialog's style, e.g. { zIndex:10000, width:300, height:100 }</td>
         </tr>
         <tr>
-          <td>dialogClassName</td>
+          <td>wrapClassName</td>
           <td>String</td>
           <td></td>
-          <td>dialog's custom className</td>
+          <td>dialog's wrap custom className</td>
         </tr>
         <tr>
           <td>onClose</td>
@@ -66,9 +66,29 @@ Dialog props
           <td>false</td>
           <td>mask when click Whether to close </td>
         </tr>
+        <tr>
+          <td>maskOpacity</td>
+          <td>Number</td>
+          <td>.8</td>
+          <td>Custom mask's transparency </td>
+        </tr>
+        <tr>
+          <td>closeVisible</td>
+          <td>Boolean</td>
+          <td>true</td>
+          <td>Whether to display the close button </td>
+        </tr>
+        <tr>
+          <td>closeContent</td>
+          <td>React.element</td>
+          <td></td>
+          <td>Custom close button </td>
+        </tr>
     </tbody>
 </table>
 
+# Latest version
+1.2.0
 
 # License
 MIT
