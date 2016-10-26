@@ -1,7 +1,7 @@
 # react-dialog
 react dialog component
 
-# 截图
+# Screenshot
 ![image](https://github.com/yongbingz/react-dialog/blob/master/demo/screenshot/1.png)
 ![image](https://github.com/yongbingz/react-dialog/blob/master/demo/screenshot/2.png)
 
