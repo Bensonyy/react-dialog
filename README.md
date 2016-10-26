@@ -6,10 +6,10 @@ react dialog component
 ![image](https://github.com/yongbingz/react-dialog/blob/master/demo/screenshot/2.png)
 
 # Usage
-import项目中dialog组件的实际目录
+Actual directory of dialog components in the import project, You may use it like this:
 
 ```
-import Dialog from '../src/DialogWrap'
+import Dialog from '../src/Dialog'
 
 <Dialog
 	show
@@ -23,6 +23,28 @@ import Dialog from '../src/DialogWrap'
 </Dialog>
 
 ```
+
+Or
+
+```
+import Dialog from '../src/Dialog'
+
+<Dialog
+  visible={ this.state.visible }
+  style={style} 
+  onClose={this.onClose}
+  closeVisible={false} //or closeContent:{ <div className="abc"></div> }
+  onClickMask
+>
+  <div>
+      <p>信息提示</p>
+      <button>确定</button>
+      <button>取消</button>
+  </div>
+</Dialog>
+
+```
+
 
 # API
 Dialog props

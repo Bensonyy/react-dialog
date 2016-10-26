@@ -48,7 +48,7 @@ class Demo extends React.Component{
 				visible={ this.state.visible }
 				style={style} 
 				onClose={this.onClose}
-				closeVisible={false}
+				closeVisible={false} //or closeContent:{ <div className="abc"></div> }
 				onClickMask
 			>
 				<div>
