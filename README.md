@@ -12,7 +12,7 @@ Actual directory of dialog components in the import project, You may use it like
 import Dialog from '../src/Dialog'
 
 <Dialog
-	show
+	visible
 	style={style} 
 	onClose={this.onClose}
 	onClickMask
